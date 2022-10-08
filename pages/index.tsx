@@ -12,9 +12,10 @@ import { useState } from "react";
 import styles from "../styles/Theme.module.css";
 
 // Put Your NFT Drop Contract address from the dashboard here
-const myNftDropContractAddress = "0x322067594DBCE69A9a9711BC393440aA5e3Aaca1";
+const myNftDropContractAddress = "0xf4B15a4426a02D7e1007d45999D796d333774955";
 
 const Home: NextPage = () => {
+  
   const { contract: nftDrop } = useContract(myNftDropContractAddress);
 
   // The amount the user claims
@@ -49,20 +50,22 @@ const Home: NextPage = () => {
 
   // Loading state while we fetch the metadata
   if (!nftDrop || !contractMetadata) {
-    return <div className={styles.container}>Loading...</div>;
+    return <div className={styles.container}>LOADING...</div>;
   }
 
   return (
     <div className={styles.container}>
-      <div className={styles.mintInfoContainer}>
-        <div className={styles.infoSide}>
-          {/* Title of your NFT Collection */}
-          <h1>{contractMetadata?.name}</h1>
-          {/* Description of your NFT Collection */}
-          <p className={styles.description}>{contractMetadata?.description}</p>
-        </div>
 
-        <div className={styles.imageSide}>
+      <div>
+        {/* Title of your NFT Collection */}
+        <h1>{contractMetadata?.name}</h1>
+        {/* Description of your NFT Collection */}
+        <p className={styles.description}>{contractMetadata?.description}</p>
+      </div>
+
+      <div>
+
+        <div>
           {/* Image Preview of NFTs */}
           <img
             className={styles.image}
@@ -71,11 +74,11 @@ const Home: NextPage = () => {
           />
 
           {/* Amount claimed so far */}
-          <div className={styles.mintCompletionArea}>
-            <div className={styles.mintAreaLeft}>
-              <p>Total Minted</p>
+          <div>
+            <div>
+              <p>TOTAL MINTED</p>
             </div>
-            <div className={styles.mintAreaRight}>
+            <div>
               {claimedSupply && unclaimedSupply ? (
                 <p>
                   {/* Claimed supply so far */}
@@ -88,7 +91,7 @@ const Home: NextPage = () => {
                 </p>
               ) : (
                 // Show loading state if we're still loading the supply
-                <p>Loading...</p>
+                <p>LOADING...</p>
               )}
             </div>
           </div>
@@ -98,15 +101,14 @@ const Home: NextPage = () => {
             // Sold out or show the claim button
             isSoldOut ? (
               <div>
-                <h2>Sold Out</h2>
+                <h2>SOLD OUT!!!</h2>
               </div>
             ) : isNotReady ? (
               <div>
-                <h2>Not ready to be minted yet</h2>
+                <h2>NOT READY FOR MINTING YET!!!</h2>
               </div>
             ) : (
               <>
-                <p>Quantity</p>
                 <div className={styles.quantityContainer}>
                   <button
                     className={`${styles.quantityControlButton}`}
@@ -167,6 +169,14 @@ const Home: NextPage = () => {
             )
           }
         </div>
+      </div>
+      <div>
+        <p className={styles.footer}>
+          MINT CONTRACT:{" "}
+          <a className={styles.footer} href="https://goerli.etherscan.io/address/0xf4b15a4426a02d7e1007d45999d796d333774955" rel="noopener noreferrer" target="_blank">
+            {myNftDropContractAddress}
+          </a>
+        </p>
       </div>
     </div>
   );

@@ -69,7 +69,7 @@ const Home: NextPage = () => {
           {/* Image Preview of NFTs */}
           <img
             className={styles.image}
-            src={contractMetadata?.image}
+            src="qr.png"
             alt={`${contractMetadata?.name} preview image`}
           />
 
@@ -177,6 +177,9 @@ const Home: NextPage = () => {
             {myNftDropContractAddress}
           </a>
         </p>
+        <a className={styles.footer} href="https://muddy-glade-6586.on.fleek.co/" rel="noopener noreferrer" target="_blank">
+          MAIN SITE
+        </a>
       </div>
     </div>
   );

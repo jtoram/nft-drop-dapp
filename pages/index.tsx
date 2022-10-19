@@ -5,6 +5,8 @@ import {
   useActiveClaimCondition,
   Web3Button,
   useContract,
+  useAddress,
+  useDisconnect,
 } from "@thirdweb-dev/react";
 import { formatUnits, parseUnits } from "ethers/lib/utils";
 import type { NextPage } from "next";
@@ -47,6 +49,12 @@ const Home: NextPage = () => {
 
   // Multiply depending on quantity
   const priceToMint = price.mul(quantity);
+
+  // Address of the connected wallet
+  const address = useAddress();
+
+  // Disconnect the currently connected wallet
+  const disconnect = useDisconnect();
 
   // Loading state while we fetch the metadata
   if (!nftDrop || !contractMetadata) {
@@ -164,6 +172,20 @@ const Home: NextPage = () => {
                         : ""
                     }`}
                   </Web3Button>
+                </div>
+                <div>
+                    {address ? (
+                      <p>
+                        CONNECTED ADDRESS:{" "}...{address.substring(36)}{" "}
+                        <button className={styles.button} onClick={disconnect}>
+                          [DISCONNECT]
+                        </button>
+                      </p>
+                    ) : (
+                      <p>
+                        NO CONNECTED ADDRESS
+                      </p>
+                    )}
                 </div>
               </>
             )

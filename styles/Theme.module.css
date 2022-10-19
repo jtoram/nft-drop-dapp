@@ -134,3 +134,17 @@
 .a:visited {
   color: #fff;
 }
+
+.button {
+  background: none!important;
+  border: none; 
+  padding: 0!important;
+  cursor: pointer;
+  font-family: Oswald;
+  font-size: 1rem;
+  color: #fff
+}
+
+.button:hover{
+  text-decoration:underline;
+}

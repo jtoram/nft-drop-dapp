@@ -14,7 +14,7 @@ import { useState } from "react";
 import styles from "../styles/Theme.module.css";
 
 // Put Your NFT Drop Contract address from the dashboard here
-const myNftDropContractAddress = "0xf4B15a4426a02D7e1007d45999D796d333774955";
+const myNftDropContractAddress = "0x2CDe4c9178D22BbBCec18302c0D7075735f397C6";
 
 const Home: NextPage = () => {
   
@@ -195,7 +195,7 @@ const Home: NextPage = () => {
       <div>
         <p className={styles.footer}>
           MINT CONTRACT:{" "}
-          <a className={styles.footer} href="https://goerli.etherscan.io/address/0xf4b15a4426a02d7e1007d45999d796d333774955" rel="noopener noreferrer" target="_blank">
+          <a className={styles.footer} href="https://polygonscan.com/address/0x2CDe4c9178D22BbBCec18302c0D7075735f397C6" rel="noopener noreferrer" target="_blank">
             {myNftDropContractAddress}
           </a>
         </p>
